@@ -1,6 +1,6 @@
 {
   "name": "@teskon/react-slidedown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Component for animating height during mount/unmount using a CSS transition",
   "main": "lib/slidedown.js",
   "style": "lib/slidedown.css",
