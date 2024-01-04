@@ -1,47 +1,47 @@
-react-slidedown
-============================
-React component which uses CSS to animate a child from its current height to ```height: auto``` when mounting/updating/unmounting.
+# @teskon/react-slidedown
 
-[![build status](https://secure.travis-ci.org/frankwallis/react-slidedown.png?branch=master)](http://travis-ci.org/frankwallis/react-slidedown)
+[![npm Downloads](https://img.shields.io/npm/dt/%40teskon%2Freact-slidedown)](https://img.shields.io/npm/dt/%40teskon%2Freact-slidedown)
 
-[Live Demo](https://ykxm1vz5vv.codesandbox.io/)
+This is a fork of [react-slidedown](https://www.npmjs.com/package/react-slidedown)
 
-## Overview ##
+React component which uses CSS to animate a child from its current height to `height: auto` when mounting/updating/unmounting.
 
-CSS does not currently support animating element height to ```height: auto``` and so *normally* javascript is used to achieve this effect.
+## Overview
 
-This component uses CSS to perform the animation, following an algorithm ([first described here](http://n12v.com/css-transition-to-from-auto)). The desired height of the element is calculated, and then css is used to transition that height. After the transition has completed the height is set to ```height: auto```.
+CSS does not currently support animating element height to `height: auto` and so _normally_ javascript is used to achieve this effect.
+
+This component uses CSS to perform the animation, following an algorithm ([first described here](http://n12v.com/css-transition-to-from-auto)). The desired height of the element is calculated, and then css is used to transition that height. After the transition has completed the height is set to `height: auto`.
 
 react-slidedown is perfect for dropdown lists, popup menus, accordions and closeable panels which have varying sized content.
 
 I am not aware of any cross-browser issues from IE10 and onwards.
 
-## Installation ##
+## Installation
 
 ```sh
-npm install react-slidedown --save
+npm install @teskon/react-slidedown --save
 ```
 
-## Usage ##
+## Usage
 
-Simply wrap the component you want to slide with the ```SlideDown``` component:
+Simply wrap the component you want to slide with the `SlideDown` component:
 
 ```js
-import React from 'react'
+import React from "react";
 
-import {SlideDown} from 'react-slidedown'
-import 'react-slidedown/lib/slidedown.css'
+import { SlideDown } from "@teskon/react-slidedown";
+import "@teskon/react-slidedown/lib/slidedown.css";
 
 export function MyDropdown(props) {
   return (
-    <SlideDown className={'my-dropdown-slidedown'}>
+    <SlideDown className={"my-dropdown-slidedown"}>
       {props.open ? props.children : null}
     </SlideDown>
-  )
+  );
 }
 ```
 
-In the example above the css file needed by react-slidedown is included via JavaScript which is the normal way of doing things when using [webpack css-loader](https://github.com/webpack-contrib/css-loader), it is also populated in the ```style``` property of package.json so if you are using [parcelify](https://github.com/rotundasoftware/parcelify) it should get included automatically. Otherwise it is also possibe to import it from css:
+In the example above the css file needed by react-slidedown is included via JavaScript which is the normal way of doing things when using [webpack css-loader](https://github.com/webpack-contrib/css-loader), it is also populated in the `style` property of package.json so if you are using [parcelify](https://github.com/rotundasoftware/parcelify) it should get included automatically. Otherwise it is also possibe to import it from css:
 
 ```
 @import "node_modules/react-slidedown/lib/slidedown.css";
@@ -49,34 +49,35 @@ In the example above the css file needed by react-slidedown is included via Java
 
 ## Props
 
-| Property | Type | Default | Required? | Description |
-|:---|:---|:---|:---:|:---|
-| children | Children | | No | When provided the component opens and when removed the component closes |
-| closed | Boolean | | No | If `true` the component will close even if children are provided |
-| className | String | | No | CSS class name to be used in addition to the `react-slidedown` class name |
-| transitionOnAppear | Boolean | `true` | No | Do a transition animation on initial mount |
-| as | String | `div` | No | The outermost Element type to render |
+| Property           | Type     | Default | Required? | Description                                                               |
+| :----------------- | :------- | :------ | :-------: | :------------------------------------------------------------------------ |
+| children           | Children |         |    No     | When provided the component opens and when removed the component closes   |
+| closed             | Boolean  |         |    No     | If `true` the component will close even if children are provided          |
+| className          | String   |         |    No     | CSS class name to be used in addition to the `react-slidedown` class name |
+| transitionOnAppear | Boolean  | `true`  |    No     | Do a transition animation on initial mount                                |
+| as                 | String   | `div`   |    No     | The outermost Element type to render                                      |
 
-## Example ##
+## Example
 
 To quickly see a live demonstration of react-slidedown go [here](https://ykxm1vz5vv.codesandbox.io/).
 
 To build and run this example project:
+
 ```
-git clone https://github.com/frankwallis/react-slidedown.git
+git clone https://github.com/teskon/react-slidedown.git
 cd react-slidedown
 npm install
 npm start
 ```
 
-## Customisation ##
+## Customisation
 
-You can customise the transition used for the animation by overriding styles on the ```SlideDown``` component:
+You can customise the transition used for the animation by overriding styles on the `SlideDown` component:
 
 ```css
 .react-slidedown.my-dropdown-slidedown {
-    transition-duration: 1.2s;
-    transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  transition-duration: 1.2s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
 }
 ```
 
@@ -84,7 +85,7 @@ The default values used are:
 
 ```css
 .react-slidedown {
-    transition-duration: .5s;
-    transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
 }
 ```
